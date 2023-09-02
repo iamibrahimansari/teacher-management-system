@@ -1,29 +1,35 @@
 import {useState} from 'react';
 
+import {useTeacherContext} from '../../hooks/useTeacherContext';
+
 import './addUser.css';
 
-const AddUser = ({
-    formInfo: {name, subjects, education, cellphone, email, address}, 
-    setFormInfo, 
-    addUserClass
-}) =>{
+const AddUser = () =>{
+    const {state, dispatch} = useTeacherContext();
+    const {formInfo: {name, subjects, education, cellphone, email, address}, classes: {addUserClass}} = state;
     const [subject, setSubject] = useState('');
     const handleOnChange = event =>{
         const {name, value} = event.target;
         if(name === 'subject'){
             setSubject(value);
         }else{
-            setFormInfo(prev => ({...prev, [name]: value}));
+            dispatch({type: 'SET_FORM_INPUT', payload: {name, value}})
         }
     }
 
     const handleOnClick = event =>{
-        setFormInfo(prev => ({...prev, subjects: [...prev.subjects, subject[0].toUpperCase() + subject.slice(1).toLowerCase()]}));
+        dispatch({type: 'MAKE_SUBJECT_CAPITALIZE', payload: subject});
         setSubject('');
+    }
+
+    const handleOnSubmit = event =>{
+        event.preventDefault();
+        dispatch({type: 'SET_CLASS', payload: {name: 'addUserClass', value: ''}});
+        dispatch({type: 'SET_CLASS', payload: {name: 'displayUserClass', value: ''}});
     }
     return <div className={`add-user ${addUserClass}`}>
         <h2>Add New Teacher</h2>
-        <form mathod="POST">
+        <form method="POST" onSubmit={handleOnSubmit}>
             <label>
                 <span>Name</span>
                 <input onChange={handleOnChange} type="text" name="name" value={name} />

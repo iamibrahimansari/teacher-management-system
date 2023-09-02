@@ -2,6 +2,9 @@ import {useState} from 'react';
 
 import UserDetail from '../userDetail/UserDetail';
 
+import {useTeacherContext} from '../../hooks/useTeacherContext';
+import header from '../../data/header';
+
 import './displayUsers.css';
 
 const users = [
@@ -52,14 +55,13 @@ const users = [
     }
 ]
 
-const header = ['S/N', 'Name', 'Subjects', 'Education', 'Contact', 'Email', 'Address', 'Actions'];
-
-const DisplayUsers = ({setAddUserClass, displayUserClass, setDisplayUserClass}) =>{
+const DisplayUsers = () =>{
+    const {state, dispatch} = useTeacherContext();
     const handleClass = () =>{
-        setAddUserClass('add-user-form-open');
-        setDisplayUserClass('hide-display-user');
+        dispatch({type: 'SET_CLASS', payload: {name: 'addUserClass', value: 'add-user-form-open'}});
+        dispatch({type: 'SET_CLASS', payload: {name: 'displayUserClass', value: 'hide-display-user'}});
     }
-    return <div className={`display-users ${displayUserClass}`}>
+    return <div className={`display-users ${state.classes.displayUserClass}`}>
         <h1>User Management System</h1>
         <table>
             <caption>Teachers Details</caption>
