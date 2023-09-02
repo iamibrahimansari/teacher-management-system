@@ -1,0 +1,25 @@
+tbody > tr:nth-child(even){
+    background-color: #ddd;
+}
+
+tbody > tr:nth-child(odd){
+    background-color: #eee;
+}
+
+.edit, .delete{
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.edit{
+    color: blue;
+}
+
+.delete{
+    color: red;
+}
+
+.action-field{
+    display: flex;
+    justify-content: space-between;
+}

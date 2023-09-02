@@ -1,0 +1,85 @@
+.add-user{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 30%;
+    margin: auto;
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.add-user > h2{
+    text-align: center;
+    color: tomato;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+label{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+input, textarea{
+    padding: 1rem;
+    font-family: inherit;
+    border: none;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+    resize: none;
+}
+
+input:hover, textarea:hover{
+    outline: 3px solid darkcyan;
+    border-radius: 5px;
+}
+
+.container{
+    display: flex;
+    gap: 2rem;
+}
+
+button{
+    border: none;
+    background-color: #444;
+    color: #fff;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+button:hover{
+    transform: translateY(-2px);
+    background-color: #fff;
+    color: #444;
+}
+
+.btn{
+    text-align: center;
+}
+
+.container > input{
+    flex: 1;
+}
+
+.container > button{
+    flex: 1;
+}
+
+p{
+    font-style: italic;
+}
+
+.add-user-form-open{
+    display: flex;
+}

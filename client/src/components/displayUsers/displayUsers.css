@@ -1,0 +1,40 @@
+.display-users{
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+table{
+    background-color: #fff;
+    padding: 2rem;
+    margin: auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+th, td{
+    padding: 1rem;
+    text-align: center;
+}
+
+caption{
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+thead, tfoot{
+    background-color: green;
+    color: #fff;
+}
+
+.display-users > button{
+    margin-top: 2rem;
+}
+
+.hide-display-user{
+    opacity: 0;
+    visibility: hidden;
+}
