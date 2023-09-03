@@ -1,4 +1,4 @@
-.add-user{
+.add-teacher{
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -11,7 +11,7 @@
     display: none;
 }
 
-.add-user > h2{
+.add-teacher > h2{
     text-align: center;
     color: tomato;
 }
@@ -80,6 +80,7 @@ p{
     font-style: italic;
 }
 
-.add-user-form-open{
+.add-teacher-form-open{
     display: flex;
 }
+

@@ -1,5 +1,6 @@
-.display-users{
+.display-teachers{
     text-align: center;
+    position: relative;
 }
 
 h1{
@@ -13,6 +14,7 @@ table{
     margin: auto;
     border-collapse: collapse;
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2);
+    width: 100%;
 }
 
 th, td{
@@ -30,11 +32,16 @@ thead, tfoot{
     color: #fff;
 }
 
-.display-users > button{
+.display-teachers > button{
     margin-top: 2rem;
 }
 
-.hide-display-user{
+.hide-display-teacher{
     opacity: 0;
     visibility: hidden;
+}
+
+h3{
+    font-size: 2.2rem;
+    color: tomato;
 }

@@ -1,12 +1,12 @@
 import {useState} from 'react';
 
-import DisplayUsers from './components/displayUsers/DisplayUsers';
-import AddUser from './components/addUser/AddUser';
+import DisplayTeachers from './components/displayTeachers/DisplayTeachers';
+import AddTeacher from './components/addTeacher/AddTeacher';
 
 const App = () =>{
   return <div className="app">
-    <DisplayUsers />
-    <AddUser />
+    <DisplayTeachers />
+    <AddTeacher />
   </div>
 }
 
