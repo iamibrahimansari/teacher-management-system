@@ -16,7 +16,7 @@ const app = express();
 
 // origin from we can access this backedn route
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: 'https://teacher-management-system-app.onrender.com',
   optionsSuccessStatus: 200
 };
 
