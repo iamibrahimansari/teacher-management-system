@@ -14,7 +14,7 @@ const DisplayTeachers = () =>{
     const {teachers, isLoading, isDelete, classes: {displayTeacherClass, errorClass}} = state;
     useEffect(() =>{
         const getTeachers = async () =>{
-            const response = await fetch('http://localhost:8080/api/teachers', {
+            const response = await fetch('https://teacher-management-system.onrender.com/api/teachers', {
                     method: 'GET',
                     headers: {'Content-Type': 'application/json'}
             });

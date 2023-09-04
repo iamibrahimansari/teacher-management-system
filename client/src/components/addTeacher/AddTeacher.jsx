@@ -40,13 +40,13 @@ const AddTeacher = () =>{
         event.preventDefault();
         let response = null;
         if(formBtnText === 'Add Teacher'){
-            response = await fetch('http://localhost:8080/api/teachers', {
+            response = await fetch('https://teacher-management-system.onrender.com/api/teachers', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({name, subjects, education, cellphone, email, address})
             });
         }else if(formBtnText === 'Update Teacher'){
-            response = await fetch(`http://localhost:8080/api/teachers/${currTeacherId}`, {
+            response = await fetch(`https://teacher-management-system.onrender.com/api/teachers/${currTeacherId}`, {
                 method: 'PATCH',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({name, subjects, education, cellphone, email, address})

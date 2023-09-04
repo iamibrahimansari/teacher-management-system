@@ -11,7 +11,7 @@ const Modal = () =>{
             dispatch({type: 'SET_FORM_BUTTON_TEXT', payload: ''});
         }
         if(indicator === 'yes'){
-            const response = await fetch(`http://localhost:8080/api/teachers/${currTeacherId}`, {
+            const response = await fetch(`https://teacher-management-system.onrender.com/api/teachers/${currTeacherId}`, {
                 method: 'DELETE',
                 headers: {'Content-Type': 'application/json'}
             })
