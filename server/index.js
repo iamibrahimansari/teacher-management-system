@@ -14,9 +14,15 @@ const MONGO_URL = process.env.MONGO_URL;
 // create express app
 const app = express();
 
+// origin from we can access this backedn route
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  optionsSuccessStatus: 200
+};
+
 // middlewares
 app.use(express.json()); // to communicate between frontend and backend
-app.use(cors());
+app.use(cors(corsOptions));
 
 // routes
 app.use('/api/teachers', teacherRoute);
