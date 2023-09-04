@@ -25,7 +25,6 @@ const createNewTeacher = async (req, res) =>{
 
 const getTeachers = async (req, res) =>{
     const teachers = await Teacher.find({});
-
     if(!Array.isArray(teachers)){
         res.status(400).json({error: 'Something went wrong while fetching the teachers data'});
     }
