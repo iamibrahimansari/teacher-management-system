@@ -1,11 +1,27 @@
 .display-teachers{
     text-align: center;
     position: relative;
+    animation: moveDisplayTeachers 0.3s linear;
+}
+
+@keyframes moveDisplayTeachers {
+    from{
+        transform: translateY(5rem);
+        opacity: 0.5;
+    }
+    to{
+        transform: translate(0);
+        opacity: 1;
+    }
 }
 
 h1{
     text-align: center;
     margin-bottom: 3rem;
+}
+
+.table-body{
+    overflow: auto;
 }
 
 table{
@@ -22,7 +38,7 @@ th, td{
     text-align: center;
 }
 
-caption{
+.caption{
     margin-bottom: 1rem;
     font-size: 2rem;
 }

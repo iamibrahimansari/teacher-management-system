@@ -15,8 +15,8 @@ const DisplayTeachers = () =>{
     useEffect(() =>{
         const getTeachers = async () =>{
             const response = await fetch('http://localhost:8080/api/teachers', {
-                method: 'GET',
-                headers: {'Content-Type': 'application/json'}
+                    method: 'GET',
+                    headers: {'Content-Type': 'application/json'}
             });
             const json = await response.json();
             dispatch({type: 'SET_ALL_TEACHER', payload: json});
@@ -36,37 +36,41 @@ const DisplayTeachers = () =>{
             isLoading ?
             <Loader /> :
             teachers.length ?
-            <table className={errorClass}>
-                <caption>Teachers Details</caption>
-                <thead>
-                    <tr>
-                        {
-                            header.map((element, index) => <th key={index}>{element}</th>)
-                        }
-                    </tr>
-                </thead>
-                <tbody>
-                {
-                    teachers.map((teacher, index) => {
-                        const newTeacher = {
-                            id: index + 1,
-                            ...teacher
-                        }
-                        return <TeacherDetail key={teacher._id} {...newTeacher} />
-                    })
-                }
-                </tbody>
-                <tfoot>
-                    <tr>
-                        {
-                            header.map((element, index) => <th key={index}>{element}</th>)
-                        }
-                    </tr>
-                </tfoot>
-            </table> :
+            <>
+            <p className="caption">Teachers Details</p>
+            <div className={`table-body ${errorClass}`}>
+                <table>
+                    <thead>
+                        <tr>
+                            {
+                                header.map((element, index) => <th key={index}>{element}</th>)
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        teachers.map((teacher, index) => {
+                            const newTeacher = {
+                                id: index + 1,
+                                ...teacher
+                            }
+                            return <TeacherDetail key={teacher._id} {...newTeacher} />
+                        })
+                    }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            {
+                                header.map((element, index) => <th key={index}>{element}</th>)
+                            }
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            </> :
             <h3>There is no teacher avilable in database. Create first one</h3>
         }
-        <button type='button' onClick={handleClass}>Add New Teacher</button>
+        <button type='button' className={errorClass} onClick={handleClass}>Add New Teacher</button>
         {
             errorClass &&
             <Modal />

@@ -30,8 +30,10 @@ const AddTeacher = () =>{
     }
 
     const handleOnClick = event =>{
-        dispatch({type: 'MAKE_SUBJECT_CAPITALIZE', payload: subject});
-        setSubject('');
+        if(subject){
+            dispatch({type: 'MAKE_SUBJECT_CAPITALIZE', payload: subject});
+            setSubject('');
+        }
     }
 
     const handleOnSubmit = async event =>{
@@ -66,6 +68,12 @@ const AddTeacher = () =>{
         }
     }
 
+    const closeForm = () =>{
+        dispatch({type: 'SET_CLASS', payload: {name: 'errorClass', value: ''}});
+        dispatch({type: 'SET_CLASS', payload: {name: 'addTeacherClass', value: ''}});
+        dispatch({type: 'SET_CLASS', payload: {name: 'displayTeacherClass', value: ''}});
+    }
+
     return <div className={`add-teacher ${addTeacherClass}`}>
         <h2 className={errorClass}>Add New Teacher</h2>
         <form method="POST" onSubmit={handleOnSubmit} className={errorClass}>
@@ -94,10 +102,11 @@ const AddTeacher = () =>{
                 <input onChange={handleOnChange} type="email" name="email" value={email} />
             </label>
             <label>
-                <span>Name</span>
+                <span>Address</span>
                 <textarea onChange={handleOnChange} name="address" value={address} cols="30" rows="5"></textarea>
             </label>
-            <div className="btn">
+            <div className="btns">
+                <button type="button" onClick={closeForm}>Close</button>
                 <button type="submit">{formBtnText}</button>
             </div>
         </form>

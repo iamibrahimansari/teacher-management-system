@@ -1,21 +1,44 @@
 .modal{
     background-color: tomato;
     position: absolute;
-    top: 50%;
+    top: 40%;
     padding: 2rem;
-    transform: translateY(-50%);
     text-align: center;
     border-radius: 10px;
+    animation: moveModal 0.3s linear;
+}
+
+@keyframes moveModal {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
 .add-teacher .modal{
-    width: 100%;
+    width: 95%;
+    left: 2.5%;
 } 
 
 .display-teachers .modal{
     width: 30%;
-    left: 50%;
-    transform: translate(-50%);
+    left: 35%;
+}
+
+@media screen and (width <= 700px){
+    .display-teachers .modal{
+        width: 50%;
+        left: 25%;
+    }
+}
+
+@media screen and (width <= 450px){
+    .display-teachers .modal{
+        width: 80%;
+        left: 10%;
+    }
 }
 
 .modal > p{

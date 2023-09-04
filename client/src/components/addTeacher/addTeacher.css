@@ -6,9 +6,20 @@
     margin: auto;
     position: absolute;
     top: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 35%;
     display: none;
+    animation: animateForm 0.3s linear;
+}
+
+@keyframes animateForm{
+    from {
+        transform: translateY(-10rem);
+        opacity: 0.5;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .add-teacher > h2{
@@ -53,7 +64,7 @@ button{
     border: none;
     background-color: #444;
     color: #fff;
-    padding: 1rem 2rem;
+    padding: 1rem;
     cursor: pointer;
     transition: all 0.2s linear;
 }
@@ -64,7 +75,7 @@ button:hover{
     color: #444;
 }
 
-.btn{
+.btns{
     text-align: center;
 }
 
@@ -84,3 +95,65 @@ p{
     display: flex;
 }
 
+.add-teacher .btns{
+    gap: 2rem;
+}
+
+.add-teacher .btns > button:first-child{
+    flex: 1;
+}
+
+.add-teacher .btns > button:last-child{
+    flex: 1;
+}
+
+@media screen and (width <= 1040px){
+    .add-teacher{
+        width: 40%;
+        left: 30%;
+    }   
+}
+
+@media screen and (width <= 805px){
+    .add-teacher{
+        width: 50%;
+        left: 25%;
+    }   
+}
+
+@media screen and (width <= 620px){
+    .add-teacher{
+        width: 60%;
+        left: 20%;
+    }   
+}
+
+@media screen and (width <= 520px){
+    .add-teacher{
+        width: 80%;
+        left: 10%;
+    }   
+}
+
+@media screen and (width <= 400px){
+    .add-teacher{
+        width: 90%;
+        left: 5%;
+    }   
+}
+
+@media screen and (width <= 350px){
+    .add-teacher{
+        width: 100%;
+        left: 0%;        
+    }   
+    form{
+        box-shadow: none;
+    }
+    .container{
+        gap: 0.5rem;
+    }
+    .add-teacher .btns{
+        gap: 0.5rem;
+    }
+}

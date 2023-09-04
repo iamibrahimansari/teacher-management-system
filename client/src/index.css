@@ -13,6 +13,7 @@ body{
   background-color: bisque;
   color: #fff;
   font-size: 1.4rem;
+  position: relative;
 }
 
 #root{
@@ -20,3 +21,8 @@ body{
   padding: 5rem;
 }
 
+@media screen and (width <= 850px){
+  #root{
+    padding: 2rem 1rem;
+  }   
+}
