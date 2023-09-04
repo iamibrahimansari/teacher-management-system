@@ -17,7 +17,8 @@ const AddTeacher = () =>{
             errorClass
         },
         formBtnText,
-        currTeacherId
+        currTeacherId,
+        isLoading
     } = state;
     const [subject, setSubject] = useState('');
     const handleOnChange = event =>{
@@ -39,6 +40,7 @@ const AddTeacher = () =>{
     const handleOnSubmit = async event =>{
         event.preventDefault();
         let response = null;
+        dispatch({type: 'IS_LOADING', payload: true});
         if(formBtnText === 'Add Teacher'){
             response = await fetch('https://teacher-management-system.onrender.com/api/teachers', {
                 method: 'POST',
@@ -66,6 +68,7 @@ const AddTeacher = () =>{
             dispatch({type: 'SET_CLASS', payload: {name: 'addTeacherClass', value: ''}});
             dispatch({type: 'SET_CLASS', payload: {name: 'displayTeacherClass', value: ''}});
         }
+        dispatch({type: 'IS_LOADING', payload: null});
     }
 
     const closeForm = () =>{
