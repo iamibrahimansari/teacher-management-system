@@ -32,22 +32,6 @@ const getTeachers = async (req, res) =>{
     res.status(200).json(teachers);        
 }
 
-const getTeacher = async (req, res) =>{
-    const {id} = req.params;
-    
-    if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({error: 'User doesn\'t exist'});
-    }
-    
-    const teacher = await Teacher.findById(id);
-    
-    if(!teacher){
-        return res.status(404).json({error: 'User doesn\'t exist'});
-    }
-    
-    res.status(200).json(teacher);
-}
-
 const updateTeacher = async (req, res) =>{
     const {id} = req.params;
     
@@ -83,7 +67,6 @@ const deleteTeacher = async (req, res) =>{
 module.exports = {
     createNewTeacher,
     getTeachers,
-    getTeacher,
     updateTeacher,
     deleteTeacher
 }
