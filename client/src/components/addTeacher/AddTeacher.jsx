@@ -52,9 +52,7 @@ const AddTeacher = () =>{
                 body: JSON.stringify({name, subjects, education, cellphone, email, address})
             })
         }
-        console.log(response);
         const json = await response.json();
-        console.log(json);
         if(!response.ok){
             dispatch({type: 'SET_ERROR', payload: json.error});
             dispatch({type: 'SET_CLASS', payload: {name: 'errorClass', value: 'error-class'}});
