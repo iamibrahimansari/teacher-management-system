@@ -39,8 +39,9 @@ const updateTeacher = async (req, res) =>{
         return res.status(404).json({error: 'User doesn\'t exist'})
     }
 
+    let teacher = null;
     try{
-        const teacher = await Teacher.findByIdAndUpdate(id, {...req.body}, {new: true});
+        teacher = await Teacher.findByIdAndUpdate(id, {...req.body}, {new: true});
     }catch(error){
         return res.json('Your updated cellphone or email is associated with other exist teacher');
     }
