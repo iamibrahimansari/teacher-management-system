@@ -25,8 +25,7 @@ app.use('/api/teachers', teacherRoute);
 const dbConnection = async () =>{
     try{
         await mongoose.connect(MONGO_URL);
-        console.log('Database connected');
-        app.listen(PORT, () => console.log('Server is running on port: ' + PORT));
+        app.listen(PORT, () => console.log('Database connected & Server is running on port: ' + PORT));
     }catch(error){
         console.error('Database connection error:', error.message);
     }
